@@ -1,0 +1,95 @@
+# g
+alias grep='grep --color=auto'
+alias vi='vim'
+alias javac="javac -J-Dfile.encoding=utf8"
+alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s js=vim
+alias -s sh=subl
+alias -s c=vim
+alias -s java=vim
+alias -s txt=vim
+alias -s sql=vim
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
+
+# [ daling ]
+alias sqlmap='python /usr/bin/sqlmap/sqlmap.py'
+alias pg12='env PGPASSWORD=daling.com psql -h l-erpdb6.ops.bj2.daling.com -p 5494 -U daling_erp -d dal_erp_db'
+alias pgbaoshui='psql -h l-erpdb1.ops.bj1.daling.com -p 5494 -U daling_erp -d dal_erp_customs_proxy_db'
+alias pgbetaa='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U pgsql -d erp_beta_A'
+alias sqlmap='/home/d/tools/sqlmap/sqlmap.py'
+alias betaa='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_a --default-character-set=utf8'
+alias betab='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_b --default-character-set=utf8'
+alias betac='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_c --default-character-set=utf8'
+
+#export PGPASSWORD="pgsql"
+alias uploadsvn='. ~/mxg/bash/uploadsvn.sh'
+
+# 配置ssh 快捷操作
+dssh(){
+        ssh l-$1.ops.bj$2.daling.com
+}
+
+# erp difftools
+function erpgit(){
+	cd /Users/Daling/mxg/git/erp/dal_erp; git pull ; git difftool o/master..o/$1 -y -t Kaleidoscope ; cd -
+}
+
+# git difftools
+function appgit(){
+	cd /Users/Daling/mxg/git/app/app_php; git pull ; git difftool origin/master..origin/$1 -y -t Kaleidoscope ; cd -
+}
+
+# 通用
+# git difftools 调用外部软件
+function gitdiff(){
+    git pull ; git difftool origin/master..origin/$1
+}
+
+# 检查分支和master 是否同源
+function gitmergeinfo(){
+	git log origin/master ^origin/$1 
+}
+
+# 检查分支和master 是否同源
+function gitmergetomaster(){
+	git push origin $1^{}:master
+}
+
+# python alias
+alias py='python'
+alias ipy='ipython'
+
+# general
+alias ll='ls -lhG'
+alias vh='sudo vim /etc/hosts'
+alias now='date +"%Y-%m-%d %T"'
+function ipcn {
+    curl "http://ip.cn/?ip=$1"
+}
+
+# find
+alias lsd='find . -maxdepth 1 -type d | sort'   #列出所有目录
+alias dfind='find -type d -name'  #查找文件夹
+alias ffind='find -type f -name'  #查找文件
+alias lt='ls -lhrt'        #sort by date    最常用到，ls -rt，按修改时间查看目录下文件
+
+#chdir
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+
+
+#分屏同时打开多个文件
+#vim -oN filea fileb filec
+vo(){
+   vim -o$# $*
+}
+vO(){
+   vim -O$# $*
+}
