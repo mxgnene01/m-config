@@ -4,7 +4,6 @@ alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s js=vim
-alias -s sh=subl
 alias -s c=vim
 alias -s java=vim
 alias -s txt=vim
@@ -15,6 +14,11 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
 alias uploadsvn='. ~/mxg/bash/uploadsvn.sh'
+
+# appgit 
+function appgit(){
+    cd ~/mxg/git/app/app_php ; git pull ; git difftool origin/master..origin/$1 ; cd -
+}
 
 # 通用
 # git difftools 调用外部软件

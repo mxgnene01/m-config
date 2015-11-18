@@ -11,14 +11,14 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="kafeitu"
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(mvn svn git)
-plugins=(mvn svn git autojump ruby)
+plugins=(mvn svn tmux command-not-found git autojump ruby)
 
 # User configuration
 
@@ -37,3 +37,6 @@ STSIZE=4000
 HISTFILESIZE=5000
 
 export PATH="$(brew --prefix php55)/bin:/usr/local/bin:$PATH"
+# zsh pgUP PgDn history search
+bindkey '\e[5~' history-search-backward
+bindkey '\e[6~' history-search-forward
