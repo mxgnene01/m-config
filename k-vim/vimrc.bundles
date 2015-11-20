@@ -429,7 +429,6 @@ hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=
 hi CtrlSpaceSearch   guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
 hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=reverse ctermfg=12 ctermbg=8
 
-
 " for minibufferexpl 去掉, 有需要同学的自己解开
 " Bundle 'fholgado/minibufexpl.vim'
 " let g:miniBufExplMapWindowNavVim = 1
@@ -445,7 +444,6 @@ hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=
 " noremap <leader>bn :MBEbn<CR>
 " noremap <leader>bp :MBEbp<CR>
 " noremap <leader>bd :MBEbd<CR>
-
 
 " 标签导航
 Bundle 'majutsushi/tagbar'

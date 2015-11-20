@@ -36,7 +36,7 @@ PROMPT_COMMAND='history -a'
 STSIZE=4000
 HISTFILESIZE=5000
 
-export PATH="$(brew --prefix php55)/bin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:$PATH"
 # zsh pgUP PgDn history search
 bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward
