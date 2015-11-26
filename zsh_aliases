@@ -42,6 +42,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
 alias nginx.start='sudo nginx -c /etc/nginx/nginx.conf'
+alias nginx.stop="ps aux | grep nginx | grep master | grep -v grep | awk '{print \$2}' | xargs sudo kill -QUIT"
 alias nginx.reload='sudo nginx -c /etc/nginx/nginx.conf -s reload'
 alias php-fpm.start="sudo php-fpm -D"
 alias php-fpm.stop="ps aux | grep php-fpm | grep -v grep | awk '{print \$2}' | sudo xargs kill"
@@ -64,6 +65,7 @@ alias lsd='find . -maxdepth 1 -type d | sort'   #列出所有目录
 alias dfind='find -type d -name'  #查找文件夹
 alias ffind='find -type f -name'  #查找文件
 alias lt='ls -lhrt'        #sort by date    最常用到，ls -rt，按修改时间查看目录下文件
+alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \; >> /dev/null 2>&1'  #递归删除目录下所有pyc
 
 #chdir
 alias ..="cd .."
