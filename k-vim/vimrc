@@ -3,7 +3,7 @@
 " Version: 8.1
 " Email: mengxiangguo1@126.com
 " ReadMe: README.md
-" From: https://github.com/wklken/k-vim
+" From: https://github.com/mxgnene01/tmux_zsh_vim
 " Sections:
 "       -> Initial Plugin 加载插件
 "       -> General Settings 基础设置
@@ -41,9 +41,7 @@ filetype plugin indent on
 "==========================================
 " General Settings 基础设置
 "==========================================
-
 "以下配置有详细说明，一些特性不喜欢可以直接注解掉
-
 "set guifont=Monaco:h20          " 字体 && 字号
 
 " history存储容量
@@ -89,8 +87,8 @@ set cursorline          " 突出显示当前行
 " set t_ti= t_te=
 
 "- 则点击光标不会换,用于复制
-set mouse-=a             " 鼠标暂不启用, 键盘党....
-" set mouse=a                 " Automatically enable mouse usage
+" set mouse-=a             " 鼠标暂不启用, 键盘党....
+set mouse=a                 " Automatically enable mouse usage
 " set mousehide               " Hide the mouse cursor while typing
 
 " 修复ctrl+m 多光标操作选择的bug，但是改变了ctrl+v进行字符选中时将包含光标下的字符
@@ -119,7 +117,6 @@ set whichwrap+=<,>,h,l
 "==========================================
 " Display Settings 展示/排版等界面格式设置
 "==========================================
-"
 "显示当前的行号列号：
 set ruler
 ""在状态栏显示正在输入的命令
@@ -129,7 +126,6 @@ set showmode
 
 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
 set scrolloff=11
-
 " set winwidth=79
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
@@ -137,8 +133,6 @@ set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\
 " Always show the status line - use 2 lines for the status bar
 set laststatus=2
 
-"显示行号：
-" set number
 " 取消换行。
 set nowrap
 
@@ -182,7 +176,6 @@ fun! ToggleFold()
 endfun
 
 " 缩进配置
-
 set smartindent   " Smart indent
 set autoindent    " 打开自动缩进
 " never add copyindent, case error   " copy the previous indentation on autoindenting
@@ -219,7 +212,6 @@ function! NumberToggle()
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
-
 "==========================================
 " FileEncode Settings 文件编码,格式
 "==========================================
@@ -229,10 +221,8 @@ set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=cn
 "set langmenu=zh_CN.UTF-8
-"set enc=2byte-gb18030
 " 下面这句只影响普通模式 (非图形界面) 下的 Vim。
 set termencoding=utf-8
-
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -323,9 +313,7 @@ set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
 
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
-
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
-
 
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
@@ -337,11 +325,9 @@ map <C-l> <C-W>l
 noremap H ^
 noremap L $
 
-
 "Map ; to : and save a million keystrokes
 " ex mode commands made easy 用于快速进入命令行
 nnoremap ; :
-
 
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
 cnoremap <C-j> <t_kd>
@@ -350,7 +336,6 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " 搜索相关
-
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 " 进入搜索Use sane regexes"
@@ -371,7 +356,6 @@ nnoremap * #
 " for # indent, python文件中输入新行时#号注释不切回行首
 autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
 
-
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
 
@@ -385,7 +369,6 @@ nnoremap ]b :bnext<cr>
 noremap <left> :bp<CR>
 noremap L :bp<CR>
 noremap <right> :bn<CR>
-
 
 " tab 操作
 " TODO: ctrl + n 变成切换tab的方法
@@ -437,7 +420,6 @@ nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
-
 " ------- 选中及操作改键
 
 "Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
@@ -462,7 +444,6 @@ inoremap kj <Esc>
 " 滚动Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
-
 
 "Jump to start and end of line using the home row keys
 " 增强tab操作, 导致这个会有问题, 考虑换键
@@ -494,7 +475,6 @@ autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 
-
 " 保存python文件时删除多余空格
 " fun! <SID>StripTrailingWhitespaces()
 "     let l = line(".")
@@ -503,7 +483,6 @@ autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 "     call cursor(l, c)
 " endfun
 " autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
 
 " 定义函数AutoSetFileHead，自动插入文件头
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
@@ -524,7 +503,6 @@ function! AutoSetFileHead()
     normal o
 endfunc
 
-
 " set some keyword to highlight
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
@@ -537,7 +515,6 @@ endif
 "==========================================
 " Theme Settings  主题设置
 "==========================================
-
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guifont=Monaco:h14
@@ -557,10 +534,10 @@ if has("gui_running")
 endif
 
 """""""""""""""""""" theme主题 """""""""""""""""""" 
+set background=dark
 
 """""""""""""""""""" solarized """"""""""""""""""""
 " set t_Co=256
-" set background=dark
 " colorscheme solarized
 """""""""""""""""""" solarized """"""""""""""""""""
 

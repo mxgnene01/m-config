@@ -181,7 +181,7 @@ Bundle 'tpope/vim-repeat'
 
 " 快速去行尾空格 [, + <Space>]
 " Bundle 'bronson/vim-trailing-whitespace'
-" map <leader><space> :FixWhitespace<cr>
+map <leader><space> :FixWhitespace<cr>
 
 " 快速赋值语句对齐
 Bundle 'junegunn/vim-easy-align'
