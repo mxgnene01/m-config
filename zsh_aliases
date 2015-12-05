@@ -24,6 +24,7 @@ function gitmergetomaster(){
 	git push origin $1^{}:master
 }
 
+alias wk='vim ~/mxg/work.tmp'
 alias uploadsvn='. ~/mxg/bash/uploadsvn.sh'
 
 # general

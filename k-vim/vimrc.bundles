@@ -182,6 +182,8 @@ Bundle 'tpope/vim-repeat'
 " 快速去行尾空格 [, + <Space>]
 " Bundle 'bronson/vim-trailing-whitespace'
 map <leader><space> :FixWhitespace<cr>
+" 不再检查缩进的不一致性
+let g:airline#extensions#whitespace#enabled = 0
 
 " 快速赋值语句对齐
 Bundle 'junegunn/vim-easy-align'
@@ -579,7 +581,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 " Bundle 'gorodinskiy/vim-coloresque'
 
 " ###### nginx #########
-" Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'evanmiller/nginx-vim-syntax'
 
 
 " ####### temp #######
