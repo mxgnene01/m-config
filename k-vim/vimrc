@@ -22,6 +22,10 @@ if exists('$TMUX')
   set term=screen-256color
 endif
 "=============== tmux 专用 ================
+"===============  xml json ================
+map <silent><C-y> :1,$!xmllint --encode UTF-8 --format -<cr>
+map <C-p> :%!python -m json.tool<CR>
+"===============  xml json ================
 
 " 修改leader键
 let mapleader = ','

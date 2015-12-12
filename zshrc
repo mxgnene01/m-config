@@ -37,6 +37,8 @@ STSIZE=4000
 HISTFILESIZE=5000
 
 export PATH="$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:$PATH"
+# jedi python
+export PYTHONSTARTUP="$(python -m jedi repl)" 
 # zsh pgUP PgDn history search
 bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward
