@@ -22,7 +22,7 @@ plugins=(mvn svn tmux command-not-found git autojump ruby)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -37,6 +37,7 @@ STSIZE=4000
 HISTFILESIZE=5000
 
 export PATH="$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home) 
 # jedi python
 export PYTHONSTARTUP="$(python -m jedi repl)" 
 # zsh pgUP PgDn history search

@@ -11,7 +11,7 @@ function appgit(){
 # 通用
 # git difftools 调用外部软件
 function gitdiff(){
-    git pull ; git difftool origin/master..origin/$1
+     git pull ; git co . ; git co $1 ;git difftool origin/master..origin/$1
 }
 
 # 检查分支和master 是否同源
@@ -29,7 +29,6 @@ alias uploadsvn='. ~/mxg/bash/uploadsvn.sh'
 
 # general
 alias grep='grep --color=auto'
-alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s js=vim
@@ -85,3 +84,12 @@ vo(){
 vO(){
    vim -O$# $*
 }
+
+# 交换两个文件
+switchfile() {
+    mv $1 ${1}.tmp && mv $2 $1 && mv ${1}.tmp $2
+}
+
+# supervisor
+alias supervisorctl="sudo supervisorctl -c /etc/supervisor/supervisord.conf"
+alias supervisor_start="sudo supervisord -c /etc/supervisor/supervisord.conf"

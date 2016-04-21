@@ -280,10 +280,10 @@ map <Down> <Nop>
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
+" nnoremap k gk
+" nnoremap gk k
+" nnoremap j gj
+" nnoremap gj j
 
 " F1 - F6 设置
 " F1 废弃这个键,防止调出系统帮助
@@ -372,7 +372,7 @@ nnoremap [b :bprevious<cr>
 nnoremap ]b :bnext<cr>
 noremap <left> :bp<CR>
 noremap L :bp<CR>
-noremap <right> :bn<CR>
+noremap K :bn<CR>
 
 " tab 操作
 " TODO: ctrl + n 变成切换tab的方法
