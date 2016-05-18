@@ -38,6 +38,7 @@ HISTFILESIZE=5000
 
 export PATH="$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home) 
+export M2_HOME="/usr/local/Cellar/maven/3.2.5/libexec"
 # jedi python
 export PYTHONSTARTUP="$(python -m jedi repl)" 
 # zsh pgUP PgDn history search

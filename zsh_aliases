@@ -24,12 +24,10 @@ function gitmergetomaster(){
 	git push origin $1^{}:master
 }
 
-alias wk='vim ~/mxg/work.tmp'
+alias makea.sh='vim ~/mxg/工作记录/Qunar_mxg/cm_from_tang/QunarBDS/bds_scripts/bds_make_A.sh'
 alias uploadsvn='. ~/mxg/bash/uploadsvn.sh'
 
 # general
-alias grep='grep --color=auto'
-alias javac="javac -J-Dfile.encoding=utf8"
 alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s js=vim
 alias -s c=vim
@@ -41,6 +39,20 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
+alias ll='ls -lhG'
+alias lt='ls -lhrt'        #sort by date    最常用到，ls -rt，按修改时间查看目录下文件
+alias vh='sudo vim /etc/hosts'
+alias now='date +"%Y-%m-%d %T"'
+alias grep='grep --color=auto'
+alias javac="javac -J-Dfile.encoding=utf8"
+# sbulime
+alias subl="/Applications/Sublime\ Text\ 2\.app/Contents/SharedSupport/bin/subl"
+function ipcn {
+    curl "http://ip.cn/?ip=$1"
+}
+alias changevimrc="cd ; switchfile .vimrc .vimrc.no; cd -"
+# general
+
 alias nginx.start='sudo nginx -c /etc/nginx/nginx.conf'
 alias nginx.stop="ps aux | grep nginx | grep master | grep -v grep | awk '{print \$2}' | xargs sudo kill -QUIT"
 alias nginx.reload='sudo nginx -c /etc/nginx/nginx.conf -s reload'
@@ -51,21 +63,12 @@ alias php-fpm.restart='php-fpm.stop && php-fpm.start'
 # python alias
 alias py='python'
 alias ipy='ipython'
-
-# general
-alias ll='ls -lhG'
-alias vh='sudo vim /etc/hosts'
-alias now='date +"%Y-%m-%d %T"'
-function ipcn {
-    curl "http://ip.cn/?ip=$1"
-}
+alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \; >> /dev/null 2>&1'  #递归删除目录下所有pyc
 
 # find
 alias lsd='find . -maxdepth 1 -type d | sort'   #列出所有目录
 alias dfind='find -type d -name'  #查找文件夹
 alias ffind='find -type f -name'  #查找文件
-alias lt='ls -lhrt'        #sort by date    最常用到，ls -rt，按修改时间查看目录下文件
-alias rmpyc='find . -name "*.pyc" -exec rm -rf {} \; >> /dev/null 2>&1'  #递归删除目录下所有pyc
 
 #chdir
 alias ..="cd .."

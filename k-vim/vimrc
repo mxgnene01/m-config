@@ -208,7 +208,7 @@ set norelativenumber number
 " autocmd InsertEnter * :set norelativenumber number
 " autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
-  if(&relativenumber == 1)
+    if(&relativenumber == 1)
     set norelativenumber number
   else
     set relativenumber
@@ -370,8 +370,7 @@ noremap <silent><leader>/ :nohls<CR>
 " :b1 :b2   :bf :bl
 nnoremap [b :bprevious<cr>
 nnoremap ]b :bnext<cr>
-noremap <left> :bp<CR>
-noremap L :bp<CR>
+noremap NJ :bp<CR>
 noremap K :bn<CR>
 
 " tab 操作
