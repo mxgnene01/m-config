@@ -1,6 +1,6 @@
 # [daling]
 dssh(){
-    ssh l-$1.ops.bj$2.daling.com
+    ssh l-$1.$2.bj$3.daling.com
 }
 
 # appgit 
@@ -96,3 +96,78 @@ switchfile() {
 # supervisor
 alias supervisorctl="sudo supervisorctl -c /etc/supervisor/supervisord.conf"
 alias supervisor_start="sudo supervisord -c /etc/supervisor/supervisord.conf"
+
+# [ pg beta ]
+alias pgbeta_erpa='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_a'
+alias pgbeta_erpb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_b'
+alias pgbeta_erpc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_c'
+alias pgbeta_erpd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_d'
+alias pgbeta_mbra='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaA'
+alias pgbeta_mbrb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaB'
+alias pgbeta_mbrc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaC'
+alias pgbeta_mbrd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaD'
+alias pgbeta_walleta='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaA'
+alias pgbeta_walletb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaB'
+alias pgbeta_walletc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaC'
+alias pgbeta_walletd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaD'
+alias pgbeta_uca='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_a'
+alias pgbeta_ucb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_b'
+alias pgbeta_ucc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_c'
+alias pgbeta_ucd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_d'
+alias pgbeta_lucky='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d deep_lucky'
+alias pgbeta_crm='env PGPASSWORD=crm_analy psql -h 10.0.3.35 -p 5494 -U crm_analy -d crm_analy'
+alias betaa='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_a --default-character-set=utf8'
+alias betab='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_b --default-character-set=utf8'
+alias betac='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_c --default-character-set=utf8'
+alias betad='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_d --default-character-set=utf8'
+
+# [ memcached beta ]
+mema(){
+    echo $1 | nc 10.36.4.66 4444
+}
+
+memb(){
+    echo $1 | nc 10.36.4.66 5555
+}
+
+memc(){
+    echo $1 | nc 10.36.4.66 6666
+}
+
+memd(){
+    echo $1 | nc 10.36.4.66 7777
+}
+
+# [ memcached prod]
+memprod(){
+    echo -e "\033[42;30;1m ========== mem1 ==========\033[0m"
+    echo $1 | nc 10.0.20.137 11211
+    echo -e "\033[42;30;1m ========== mem2 ==========\033[0m"
+    echo $1 | nc 10.0.20.138 11211
+    echo -e "\033[42;30;1m ========== mem3 ==========\033[0m"
+    echo $1 | nc 10.0.20.139 11211
+    echo -e "\033[42;30;1m ========== mem4 ==========\033[0m"
+    echo $1 | nc 10.0.20.140 11211
+    echo -e "\033[42;30;1m ========== mem5 ==========\033[0m"
+    echo $1 | nc 10.0.20.141 11211
+}
+
+alias sqlmap='/home/d/tools/sqlmap/sqlmap.py'
+
+# mysql prod slave
+alias slave='mysql -hstatdb.corp.daling.com -uapp_ro -pY8rnrALxZtZJRNnM -P6940 ymall_mobile --default-character-set=utf8'
+
+# [ redis prod ]
+alias r6379='redis-cli -h 10.0.16.40 -p 6379'
+
+# [ lucky ]
+alias rlucky1='redis-cli -h 10.0.16.60 -p 16397'
+alias rlucky2='redis-cli -h 10.0.16.60 -p 16398'
+
+# redis beta
+alias rbetaa='redis-cli -h 10.36.4.66 -p 6379'
+alias rbetab='redis-cli -h 10.36.4.66 -p 6380'
+alias rbetac='redis-cli -h 10.36.4.66 -p 6381'
+alias rbetad='redis-cli -h 10.36.4.66 -p 6382'
+alias rbetae='redis-cli -h 10.36.4.66 -p 6383'
+alias rphp4='redis-cli -h l-php4.qa.bj0.daling.com -p 6379'

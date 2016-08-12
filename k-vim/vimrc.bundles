@@ -36,13 +36,14 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_enable_highlighting=1
 
+""""""""""""""""""""" python 语法检查 """"""""""""""
 " 最轻量
 " let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes
 
 " 中等
 " error code: http://pep8.readthedocs.org/en/latest/intro.html#error-codes
 let g:syntastic_python_checkers=['pyflakes', 'pep8'] " 使用pyflakes,速度比pylint快
-let g:syntastic_python_pep8_args='--ignore=E501,E225'
+let g:syntastic_python_pep8_args='--ignore=E501,E225,E302,E126,E128,E402'
 
 " 重量级, 但是足够强大, 定制完成后相当个性化
 " pylint codes: http://pylint-messages.wikidot.com/all-codes
@@ -50,6 +51,7 @@ let g:syntastic_python_pep8_args='--ignore=E501,E225'
 " let g:syntastic_python_checkers=['pylint'] " 使用pyflakes,速度比pylint快
 " let g:syntastic_python_pylint_args='--disable=C0111,R0903,C0301'
 
+""""""""""""""""""""" python 语法检查 """"""""""""""
 
 let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
@@ -73,8 +75,6 @@ nnoremap <Leader>s :call ToggleErrors()<cr>
 " nnoremap <Leader>sn :lnext<cr>
 " nnoremap <Leader>sp :lprevious<cr>
 
-
-
 " ################### 自动补全 ###################
 
 " 代码自动补全
@@ -82,7 +82,7 @@ nnoremap <Leader>s :call ToggleErrors()<cr>
 "重启 :YcmRestartServer
 Bundle 'Valloric/YouCompleteMe'
 "youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion=['<c-n>']
 let g:ycm_key_list_select_completion = ['<Down>']
 "let g:ycm_key_list_previous_completion=['<c-p>']
 let g:ycm_key_list_previous_completion = ['<Up>']
@@ -118,6 +118,7 @@ let g:ycm_filetype_blacklist = {
       \ 'gitcommit' : 1,
       \}
 
+" ################### 自动补全 ###################
 
 " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
 Bundle 'SirVer/ultisnips'
@@ -307,6 +308,8 @@ let g:ctrlsf_mapping = {
     \ "pquit" : "q",
     \ }
 
+" 安装更便捷的导航跳转 vim tmux 完美结合
+" Bundle 'christoomey/vim-tmux-navigator'
 
 " git.  git操作还是习惯命令行,vim里面处理简单diff编辑操作
 " :Gdiff  :Gstatus :Gvsplit
@@ -433,16 +436,16 @@ hi CtrlSpaceSearch   guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE te
 hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=reverse ctermfg=12 ctermbg=8
 
 " for minibufferexpl 去掉, 有需要同学的自己解开
-Bundle 'fholgado/minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-" 解决FileExplorer窗口变小问题
-let g:miniBufExplForceSyntaxEnable = 1
-let g:miniBufExplorerMoreThanOne=2
-let g:miniBufExplCycleArround=1
-" " 默认方向键左右可以切换buffer
+" Bundle 'fholgado/minibufexpl.vim'
+" let g:miniBufExplMapWindowNavVim = 1
+" let g:miniBufExplMapWindowNavArrows = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplModSelTarget = 1
+" " 解决FileExplorer窗口变小问题
+" let g:miniBufExplForceSyntaxEnable = 1
+" let g:miniBufExplorerMoreThanOne=2
+" let g:miniBufExplCycleArround=1
+" 默认方向键左右可以切换buffer
 " nnoremap <TAB> :MBEbn<CR>
 " noremap <leader>bn :MBEbn<CR>
 " noremap <leader>bp :MBEbp<CR>

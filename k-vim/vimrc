@@ -31,9 +31,6 @@ map <C-p> :%!python -m json.tool<CR>
 let mapleader = ','
 let g:mapleader = ','
 
-" 开启语法高亮
-syntax enable
-
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -41,6 +38,8 @@ endif
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
+
+map <F12> bi{<Esc>ea}<Esc>
 
 "==========================================
 " General Settings 基础设置
@@ -60,6 +59,9 @@ filetype plugin on
 "启动自动补全
 filetype plugin indent on
 
+" 默认粘贴模式
+set paste
+
 set autoread          " 文件修改之后自动载入。
 set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的提示
 
@@ -72,6 +74,9 @@ set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的
 set nobackup
 " 关闭交换文件
 set noswapfile
+
+" 粘贴没有自动缩进
+set paste
 
 "create undo file
 if has('persistent_undo')
@@ -493,12 +498,16 @@ function! AutoSetFileHead()
     "如果文件类型为.sh文件
     if &filetype == 'sh'
         call setline(1, "\#!/bin/bash")
+        call append(1, "")
+        call append(2, "\# Author: Meng xiangguo <mxgnene01@gmail.com>")
     endif
 
     "如果文件类型为python
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
         call append(1, "\# encoding: utf-8")
+        call append(2, "")
+        call append(3, "\# Author: Meng xiangguo <mxgnene01@gmail.com>")
     endif
 
     normal G
@@ -538,6 +547,8 @@ endif
 
 """""""""""""""""""" theme主题 """""""""""""""""""" 
 set background=dark
+" 开启语法高亮
+syntax enable
 
 """""""""""""""""""" solarized """"""""""""""""""""
 " set t_Co=256

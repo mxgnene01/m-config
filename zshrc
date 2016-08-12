@@ -18,7 +18,7 @@ ZSH_THEME="kafeitu"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(mvn svn git)
-plugins=(mvn svn tmux command-not-found git autojump ruby)
+plugins=(mvn svn tmux command-not-found git autojump ruby osx python)
 
 # User configuration
 
@@ -44,3 +44,5 @@ export PYTHONSTARTUP="$(python -m jedi repl)"
 # zsh pgUP PgDn history search
 bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward
+
+# eval `/usr/local/bin/keychain --eval --agents ssh --inherit any /Users/Daling/.ssh/id_rsa.qatools`
