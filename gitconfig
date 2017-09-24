@@ -1,0 +1,19 @@
+[user]
+        name = mengxiangguo
+        email = mengxiangguo@daling.com
+[gui]
+        encoding = utf-8
+[core]
+        quotepath = off
+        editor = vim
+        excludesfile = ~/.gitignore_global
+[alias]
+        ci = commit
+        mg = merge
+        co = checkout
+        st = status
+        br = branch
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+        ui = true
+

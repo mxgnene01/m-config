@@ -1,0 +1,31 @@
+[global_config]
+[keybindings]
+  copy = <Alt>c
+  paste = <Alt>v
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.92
+    background_image = None
+    cursor_color = "#3036ec"
+    cursor_shape = ibeam
+    custom_command = tmux
+    font = Monospace 12
+    foreground_color = "#ffffff"
+    login_shell = True
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    show_titlebar = False
+    use_system_font = False

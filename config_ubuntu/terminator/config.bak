@@ -1,0 +1,38 @@
+[global_config]
+  borderless = True
+  broadcast_default = off
+  geometry_hinting = False
+  scroll_tabbar = True
+  window_state = maximise
+[keybindings]
+  copy = <Alt>c
+  paste = <Alt>v
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.86
+    background_image = None
+    background_type = transparent
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#e50e1e"
+    cursor_shape = underline
+    font = Monospace 12
+    foreground_color = "#ffffff"
+    icon_bell = False
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    use_system_font = False
