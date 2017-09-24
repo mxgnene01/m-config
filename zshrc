@@ -22,7 +22,7 @@ plugins=(mvn svn tmux command-not-found git autojump ruby osx python)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/mxg/bin:/usr/local/bin:$HOME/mxg/git/qa/cmd_jenkins:/usr/local/sbin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -34,13 +34,13 @@ PROMPT_COMMAND='history -a'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 STSIZE=4000
-HISTFILESIZE=5000
+HISTFILESIZE=9900
 
 export PATH="$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home) 
+export JAVA_HOME=$(/usr/libexec/java_home)
 export M2_HOME="/usr/local/Cellar/maven/3.2.5/libexec"
 # jedi python
-export PYTHONSTARTUP="$(python -m jedi repl)" 
+export PYTHONSTARTUP="$(python -m jedi repl)"
 # zsh pgUP PgDn history search
 bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward

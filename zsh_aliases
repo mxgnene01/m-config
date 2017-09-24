@@ -1,35 +1,21 @@
-# [daling]
-dssh(){
-    ssh l-$1.$2.bj$3.daling.com
-}
+# 引入 .zsh_alias
+if [ -f ~/.zsh_daling ]; then
+    . ~/.zsh_daling
+fi
 
-# appgit 
-function appgit(){
-    cd ~/mxg/git/app/app_php ; git pull ; git difftool origin/master..origin/$1 ; cd -
-}
-
-# 通用
-# git difftools 调用外部软件
-function gitdiff(){
-     git pull ; git co . ; git co $1 ;git difftool origin/master..origin/$1
-}
-
-# 检查分支和master 是否同源
-function gitmergeinfo(){
-	git log origin/master ^origin/$1 
-}
-
-# 检查分支和master 是否同源
-function gitmergetomaster(){
-	git push origin $1^{}:master
-}
-
-alias makea.sh='vim ~/mxg/工作记录/Qunar_mxg/cm_from_tang/QunarBDS/bds_scripts/bds_make_A.sh'
-alias uploadsvn='. ~/mxg/bash/uploadsvn.sh'
+# 颜色定义
+red="\e[0;31m"
+RED="\e[1;31m"
+blue="\e[0;34m"
+BLUE="\e[1;34m"
+cyan="\e[0;36m"
+CYAN="\e[1;36m"
+NC="\e[0m"
 
 # general
-alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+# alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s js=vim
+alias -s conf=vim
 alias -s c=vim
 alias -s java=vim
 alias -s txt=vim
@@ -45,17 +31,73 @@ alias vh='sudo vim /etc/hosts'
 alias now='date +"%Y-%m-%d %T"'
 alias grep='grep --color=auto'
 alias javac="javac -J-Dfile.encoding=utf8"
+alias runtmux="/Users/Daling/mxg/bash/tmux.sh"
+
+# local mysql server, start command is : mysql.server start
+function my() {
+    mysql -u root test
+}
+
+ejq () {
+    echo "$1" | jq .
+}
+
+cjq(){
+    curl -s "$1" | jq .
+}
+
+function fgg() {
+    if [ $# -lt 1 ]; then
+        fg
+    else
+        fg "%$1"
+    fi
+}
+
 # sbulime
-alias subl="/Applications/Sublime\ Text\ 2\.app/Contents/SharedSupport/bin/subl"
-function ipcn {
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias wiki="vim ~/mxg/wiki"
+
+
+# 查看ip 地，不传参数查看目前IP
+function ipcn() {
     curl "http://ip.cn/?ip=$1"
 }
+
+function dates() {
+    date -r $1
+}
+
+function tcurl() {
+    curl -w '\nLookup time:\t%{time_namelookup}\nConnect time:\t%{time_connect}\nPreXfer time:\t%{time_pretransfer}\n
+     StartXfer time:\t%{time_starttransfer}\n\nTotal time:\t%{time_total}\n' -o /dev/null -s  $1
+}
+
+# 重复N次命令 repeat 2 ls
+function repeat(){
+    local i max
+    max=$1; shift;
+    for ((i=1; i <= max; i++ ));do
+        eval "$@"
+    done
+}
+
+function lowercase(){
+    local var=`echo $* | tr A-Z a-z`
+    echo $var
+}
+
+function upercase(){
+    local var=`echo $* | tr a-z A-Z`
+    echo $var
+}
+
 alias changevimrc="cd ; switchfile .vimrc .vimrc.no; cd -"
 # general
 
-alias nginx.start='sudo nginx -c /etc/nginx/nginx.conf'
+alias nginx.start='sudo openresty -c /etc/nginx/nginx.conf'
 alias nginx.stop="ps aux | grep nginx | grep master | grep -v grep | awk '{print \$2}' | xargs sudo kill -QUIT"
-alias nginx.reload='sudo nginx -c /etc/nginx/nginx.conf -s reload'
+alias nginx.reload='sudo openresty -c /etc/nginx/nginx.conf -s reload'
 alias php-fpm.start="sudo php-fpm -D"
 alias php-fpm.stop="ps aux | grep php-fpm | grep -v grep | awk '{print \$2}' | sudo xargs kill"
 alias php-fpm.restart='php-fpm.stop && php-fpm.start'
@@ -78,12 +120,12 @@ alias .....="cd ../../../.."
 alias .4='cd ../../../../'
 alias .5='cd ../../../../../'
 
-
 #分屏同时打开多个文件
 #vim -oN filea fileb filec
 vo(){
    vim -o$# $*
 }
+
 vO(){
    vim -O$# $*
 }
@@ -95,79 +137,5 @@ switchfile() {
 
 # supervisor
 alias supervisorctl="sudo supervisorctl -c /etc/supervisor/supervisord.conf"
-alias supervisor_start="sudo supervisord -c /etc/supervisor/supervisord.conf"
+alias supervisor.start="sudo supervisord -c /etc/supervisor/supervisord.conf"
 
-# [ pg beta ]
-alias pgbeta_erpa='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_a'
-alias pgbeta_erpb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_b'
-alias pgbeta_erpc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_c'
-alias pgbeta_erpd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_erp_beta_d'
-alias pgbeta_mbra='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaA'
-alias pgbeta_mbrb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaB'
-alias pgbeta_mbrc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaC'
-alias pgbeta_mbrd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_growth_betaD'
-alias pgbeta_walleta='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaA'
-alias pgbeta_walletb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaB'
-alias pgbeta_walletc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaC'
-alias pgbeta_walletd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d dal_mbr_wallet_betaD'
-alias pgbeta_uca='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_a'
-alias pgbeta_ucb='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_b'
-alias pgbeta_ucc='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_c'
-alias pgbeta_ucd='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d uc_beta_d'
-alias pgbeta_lucky='psql -h l-opdb2.ops.bj0.daling.com -p 5432 -U postgres -d deep_lucky'
-alias pgbeta_crm='env PGPASSWORD=crm_analy psql -h 10.0.3.35 -p 5494 -U crm_analy -d crm_analy'
-alias betaa='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_a --default-character-set=utf8'
-alias betab='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_b --default-character-set=utf8'
-alias betac='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_c --default-character-set=utf8'
-alias betad='mysql -h10.36.2.22 -uymall_mobile -ppwd:hfh36FVBv php_beta_d --default-character-set=utf8'
-
-# [ memcached beta ]
-mema(){
-    echo $1 | nc 10.36.4.66 4444
-}
-
-memb(){
-    echo $1 | nc 10.36.4.66 5555
-}
-
-memc(){
-    echo $1 | nc 10.36.4.66 6666
-}
-
-memd(){
-    echo $1 | nc 10.36.4.66 7777
-}
-
-# [ memcached prod]
-memprod(){
-    echo -e "\033[42;30;1m ========== mem1 ==========\033[0m"
-    echo $1 | nc 10.0.20.137 11211
-    echo -e "\033[42;30;1m ========== mem2 ==========\033[0m"
-    echo $1 | nc 10.0.20.138 11211
-    echo -e "\033[42;30;1m ========== mem3 ==========\033[0m"
-    echo $1 | nc 10.0.20.139 11211
-    echo -e "\033[42;30;1m ========== mem4 ==========\033[0m"
-    echo $1 | nc 10.0.20.140 11211
-    echo -e "\033[42;30;1m ========== mem5 ==========\033[0m"
-    echo $1 | nc 10.0.20.141 11211
-}
-
-alias sqlmap='/home/d/tools/sqlmap/sqlmap.py'
-
-# mysql prod slave
-alias slave='mysql -hstatdb.corp.daling.com -uapp_ro -pY8rnrALxZtZJRNnM -P6940 ymall_mobile --default-character-set=utf8'
-
-# [ redis prod ]
-alias r6379='redis-cli -h 10.0.16.40 -p 6379'
-
-# [ lucky ]
-alias rlucky1='redis-cli -h 10.0.16.60 -p 16397'
-alias rlucky2='redis-cli -h 10.0.16.60 -p 16398'
-
-# redis beta
-alias rbetaa='redis-cli -h 10.36.4.66 -p 6379'
-alias rbetab='redis-cli -h 10.36.4.66 -p 6380'
-alias rbetac='redis-cli -h 10.36.4.66 -p 6381'
-alias rbetad='redis-cli -h 10.36.4.66 -p 6382'
-alias rbetae='redis-cli -h 10.36.4.66 -p 6383'
-alias rphp4='redis-cli -h l-php4.qa.bj0.daling.com -p 6379'
