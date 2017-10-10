@@ -54,10 +54,6 @@ function fgg() {
     fi
 }
 
-# sbulime
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias wiki="vim ~/mxg/wiki"
-
 
 # 查看ip 地，不传参数查看目前IP
 function ipcn() {
