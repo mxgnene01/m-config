@@ -31,7 +31,6 @@ alias vh='sudo vim /etc/hosts'
 alias now='date +"%Y-%m-%d %T"'
 alias grep='grep --color=auto'
 alias javac="javac -J-Dfile.encoding=utf8"
-alias runtmux="/Users/Daling/mxg/bash/tmux.sh"
 
 # local mysql server, start command is : mysql.server start
 function my() {
