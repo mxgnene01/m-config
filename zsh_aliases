@@ -68,11 +68,6 @@ function tcurl() {
      StartXfer time:\t%{time_starttransfer}\n\nTotal time:\t%{time_total}\n' -o /dev/null -s  $1
 }
 
-# sbulime
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias wiki="vim ~/mxg/wiki"
-alias runtmux="/Users/Daling/mxg/bash/tmux.sh"
-
 # 重复N次命令 repeat 2 ls
 function repeat(){
     local i max
