@@ -19,6 +19,7 @@
 [profiles]
   [[default]]
     background_darkness = 0.92
+    copy_on_selection = True
     background_image = None
     cursor_color = "#3036ec"
     cursor_shape = ibeam
