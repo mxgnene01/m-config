@@ -18,11 +18,11 @@ ZSH_THEME="kafeitu"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(mvn svn git)
-plugins=(mvn svn tmux command-not-found git autojump ruby osx python)
+plugins=(mvn svn tmux command-not-found git autojump ruby osx python docker)
 
 # User configuration
 
-export PATH=$HOME/mxg/bin:/usr/local/bin:$HOME/mxg/git/qa/cmd_jenkins:/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$HOME/mxg/git/cm/cmd_jenkins/:$HOME/bin:$HOME/mxg/bin:/usr/local/bin:/usr/local/sbin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -36,9 +36,9 @@ PROMPT_COMMAND='history -a'
 STSIZE=4000
 HISTFILESIZE=9900
 
-export PATH="$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export M2_HOME="/usr/local/Cellar/maven/3.2.5/libexec"
+export JMETER_S_HOME='/tmp/yace/'
 # jedi python
 export PYTHONSTARTUP="$(python -m jedi repl)"
 # zsh pgUP PgDn history search
@@ -46,3 +46,6 @@ bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward
 
 # eval `/usr/local/bin/keychain --eval --agents ssh --inherit any /Users/Daling/.ssh/id_rsa.qatools`
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# source /usr/local/opt/autoenv/activate.sh

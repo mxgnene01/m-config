@@ -31,10 +31,15 @@ alias vh='sudo vim /etc/hosts'
 alias now='date +"%Y-%m-%d %T"'
 alias grep='grep --color=auto'
 alias javac="javac -J-Dfile.encoding=utf8"
+alias uw='sudo mount -uw /'
 
 # local mysql server, start command is : mysql.server start
 function my() {
     mysql -u root test
+}
+
+chrome() {
+	open -a "Google Chrome" "$1"
 }
 
 ejq () {
@@ -67,6 +72,13 @@ function tcurl() {
     curl -w '\nLookup time:\t%{time_namelookup}\nConnect time:\t%{time_connect}\nPreXfer time:\t%{time_pretransfer}\n
      StartXfer time:\t%{time_starttransfer}\n\nTotal time:\t%{time_total}\n' -o /dev/null -s  $1
 }
+
+# sublime
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias wiki="vim ~/mxg/wiki"
+alias runtmux="/Users/Daling/mxg/bash/tmux.sh"
+alias vcode='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+
 
 # 重复N次命令 repeat 2 ls
 function repeat(){
@@ -133,4 +145,6 @@ switchfile() {
 # supervisor
 alias supervisorctl="sudo supervisorctl -c /etc/supervisor/supervisord.conf"
 alias supervisor.start="sudo supervisord -c /etc/supervisor/supervisord.conf"
+
+alias py3="source /virtualenvs/PY3/bin/activate"
 
