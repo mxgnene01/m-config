@@ -36,8 +36,17 @@ PROMPT_COMMAND='history -a'
 STSIZE=4000
 HISTFILESIZE=9900
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+JAVA_14_HOME=/Library/Java/JavaVirtualMachines/jdk-14.0.2.jdk/Contents/Home
+JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home
+
+# 默认为JDK8
+export JAVA_HOME=$JAVA_8_HOME
+
+alias jdk14="export JAVA_HOME=$JAVA_14_HOME"
+alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
+
 export M2_HOME="/usr/local/Cellar/maven/3.2.5/libexec"
+export GOPATH="/Users/jack/go/"
 export JMETER_S_HOME='/tmp/yace/'
 # jedi python
 export PYTHONSTARTUP="$(python -m jedi repl)"
